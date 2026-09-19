@@ -1,0 +1,5 @@
+.DS_Store
+
+# Local reference copy of OGLight's own source (third-party script, not
+# ours to redistribute) -- see CLAUDE.md, "Reference copy of OGLight's source"
+reference/
