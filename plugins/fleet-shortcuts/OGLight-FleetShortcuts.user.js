@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name            OGLight - Fleet Shortcuts
 // @namespace       https://github.com/alvarocastro/oglight-plugins
-// @version         1.5.3
-// @description     Adds one-click 100%-of-resource send shortcuts next to OGLight's fleet resource-picker button, and lays the fleet-dispatch toolbar out over two rows
+// @version         1.5.4
+// @description     Adds one-click buttons to instantly send 100% of a resource when dispatching a fleet, no popup needed
 // @author          Alvaro Castro
 // @match           https://*.ogame.gameforge.com/game/*
 // @downloadURL     https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/fleet-shortcuts/OGLight-FleetShortcuts.user.js
