@@ -224,10 +224,10 @@ right after queuing. `checkTodolist()` itself runs periodically off
 OGLight's own loop, so this plugin also polls every 2s as a fallback
 to stay in sync with it.
 
-**Not yet live-tested in a browser** — position/collision with
-OGLight's own tile UI (e.g. the native "currently building" target
-level, or the debug-mode id overlay) may need adjusting once tried
-against a real account.
+**Live-tested, confirmed working** on a real account — the `→<targetLevel>`
+suffix renders correctly inside the native `.level` badge, no collision with
+OGLight's own tile UI (native "currently building" target level, debug-mode
+id overlay) observed.
 
 ### `OGLight-FleetShortcuts.user.js`
 
