@@ -14,29 +14,12 @@ Each plugin is independent — install only the ones you want.
 
 ## Plugins
 
-### [OGLight - Build Queue Icons](plugins/build-icons/OGLight-BuildIcons.user.js)
+- [Build Queue Icons](plugins/build-icons/) — proper icons (with tooltips) instead of tiny colored bars for each planet's build queue
+- [Fleet Shortcuts](plugins/fleet-shortcuts/) — one-click buttons to send 100% of a resource when dispatching a fleet
+- [Todolist Target Levels](plugins/todo-levels/) — shows your Todolist's target level next to the current level on building/research tiles
+- [Notes Panel](plugins/notes/) — a small persistent notes box below your planet list
 
-Turns the tiny colored bars next to each planet (showing what's currently queued — building, research, ship, lifeform) into proper icons with hover tooltips, so you can tell at a glance what's building where.
-
-![Build Queue Icons](plugins/build-icons/BuildIcons.png)
-
-### [OGLight - Fleet Shortcuts](plugins/fleet-shortcuts/OGLight-FleetShortcuts.user.js)
-
-Adds one-click buttons on the fleet-dispatch screen to send 100% of your metal, crystal, or deuterium instantly — no popup, no typing amounts.
-
-![Fleet Shortcuts](plugins/fleet-shortcuts/FleetShortcuts.png)
-
-### [OGLight - Todolist Target Levels](plugins/todo-levels/OGLight-TodoLevels.user.js)
-
-Shows the target level from your OGLight Todolist directly on the building/research tiles, right next to the current level, so you always know what you're working toward without opening the Todolist.
-
-![Todolist Target Levels](plugins/todo-levels/TodoLevels.png)
-
-### [OGLight - Notes Panel](plugins/notes/OGLight-Notes.user.js)
-
-Adds a simple persistent notes box below your planet list — jot down build orders, targets, or reminders. Auto-saves as you type, per universe.
-
-![Notes Panel](plugins/notes/Notes.png)
+Each one has its own README with a screenshot and install link.
 
 ## Compatibility
 
