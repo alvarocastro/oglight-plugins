@@ -41,3 +41,7 @@ Adds a simple persistent notes box below your planet list — jot down build ord
 ## Compatibility
 
 Tested against OGLight v5.4.3-b9. These plugins hook into OGLight's DOM structure and CSS classes, so a future OGLight update could occasionally require a matching update here.
+
+## License
+
+[MIT](LICENSE)

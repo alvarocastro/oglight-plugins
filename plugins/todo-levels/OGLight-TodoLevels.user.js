@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name            OGLight - Todolist Target Levels
 // @namespace       https://github.com/alvarocastro/oglight-plugins
-// @version         1.0.3
+// @version         1.0.4
 // @description     Shows your OGLight Todolist's target level right next to the current level on building and research tiles
 // @author          Alvaro Castro
+// @license         MIT
 // @match           https://*.ogame.gameforge.com/game/*
 // @downloadURL     https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/todo-levels/OGLight-TodoLevels.user.js
 // @updateURL       https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/todo-levels/OGLight-TodoLevels.user.js

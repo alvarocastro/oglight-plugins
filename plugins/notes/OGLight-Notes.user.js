@@ -1,9 +1,10 @@
 // ==UserScript==
 // @name            OGLight - Notes Panel
 // @namespace       https://github.com/alvarocastro/oglight-plugins
-// @version         1.2.3
+// @version         1.2.4
 // @description     Adds a small persistent notes panel below your planet list, for build orders and reminders
 // @author          Alvaro Castro
+// @license         MIT
 // @match           https://*.ogame.gameforge.com/game/*
 // @downloadURL     https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/notes/OGLight-Notes.user.js
 // @updateURL       https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/notes/OGLight-Notes.user.js
