@@ -1,6 +1,6 @@
 # OGLight Plugins
 
-A small collection of [Tampermonkey](https://www.tampermonkey.net/) userscripts that extend [OGLight](https://greasyfork.org/es/scripts/514909-oglight), a third-party UI overhaul for the browser game [OGame](https://ogame.gameforge.com/).
+A small collection of [Tampermonkey](https://www.tampermonkey.net/) userscripts that extend [OGLight](https://forum.origin.ogame.gameforge.com/forum/thread/537-oglight/), a third-party UI overhaul for the browser game [OGame](https://ogame.gameforge.com/).
 
 These plugins never modify OGLight itself — they load after it and add or restyle small pieces of its UI. **OGLight must already be installed** for any of these to do anything.
 
