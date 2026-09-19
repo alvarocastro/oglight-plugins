@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name            OGLight - Notes Panel
 // @namespace       https://github.com/alvarocastro/oglight-plugins
-// @version         1.2.1
+// @version         1.2.2
 // @description     Adds a small persistent notes textarea panel below the planet list
-// @author          Alvaro
+// @author          Alvaro Castro
 // @match           https://*.ogame.gameforge.com/game/*
+// @downloadURL     https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/notes/OGLight-Notes.user.js
+// @updateURL       https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/notes/OGLight-Notes.user.js
 // @run-at          document-idle
 // @grant           GM_addStyle
 // @grant           GM_getValue

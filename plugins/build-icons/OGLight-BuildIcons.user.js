@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name            OGLight - Build Queue Icons
 // @namespace       https://github.com/alvarocastro/oglight-plugins
-// @version         1.5.1
+// @version         1.5.2
 // @description     Replaces the build queue bars in the planet list with Material Icons
-// @author          Alvaro
+// @author          Alvaro Castro
 // @match           https://*.ogame.gameforge.com/game/*
+// @downloadURL     https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/build-icons/OGLight-BuildIcons.user.js
+// @updateURL       https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/build-icons/OGLight-BuildIcons.user.js
 // @run-at          document-idle
 // @grant           GM_addStyle
 // ==/UserScript==

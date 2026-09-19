@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name            OGLight - Icon Debug Panel (TEMPORARY)
 // @namespace       https://github.com/alvarocastro/oglight-plugins
-// @version         1.1.1
+// @version         1.1.2
 // @description     Dev tool: dumps every Material Icons name/codepoint OGLight's own script references into an on-page panel, to eyeball which ones actually render in its trimmed font subset. Not meant to stay installed.
-// @author          Alvaro
+// @author          Alvaro Castro
 // @match           https://*.ogame.gameforge.com/game/*
+// @downloadURL     https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/icon-debug/OGLight-IconDebug.user.js
+// @updateURL       https://raw.githubusercontent.com/alvarocastro/oglight-plugins/main/plugins/icon-debug/OGLight-IconDebug.user.js
 // @run-at          document-idle
 // @grant           GM_addStyle
 // ==/UserScript==
