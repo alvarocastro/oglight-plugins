@@ -18,6 +18,7 @@ Each plugin is independent — install only the ones you want. If you'd rather t
 - [Fleet Shortcuts](plugins/fleet-shortcuts/) ([Install](https://greasyfork.org/en/scripts/596556-oglight-fleet-shortcuts)) — one-click buttons to send 100% of a resource when dispatching a fleet
 - [Todolist Target Levels](plugins/todo-levels/) ([Install](https://greasyfork.org/en/scripts/596558-oglight-todolist-target-levels)) — shows your Todolist's target level next to the current level on building/research tiles
 - [Notes Panel](plugins/notes/) ([Install](https://greasyfork.org/en/scripts/596557-oglight-notes-panel)) — a small persistent notes box below your planet list
+- [Copy Coordinates](plugins/copy-coords/) — shift+click a planet in your planet list to copy its coordinates as a `[coordinates]` forum tag
 
 Each one has its own README with a screenshot and install link.
 
