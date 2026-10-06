@@ -19,6 +19,7 @@ Each plugin is independent — install only the ones you want. If you'd rather t
 - [Todolist Target Levels](plugins/todo-levels/) ([Install](https://greasyfork.org/en/scripts/596558-oglight-todolist-target-levels)) — shows your Todolist's target level next to the current level on building/research tiles
 - [Notes Panel](plugins/notes/) ([Install](https://greasyfork.org/en/scripts/596557-oglight-notes-panel)) — a small persistent notes box below your planet list
 - [Copy Coordinates](plugins/copy-coords/) — shift+click a planet in your planet list to copy its coordinates as a `[coordinates]` forum tag
+- [Quick Expedition](plugins/quick-expedition/) — one-click button on the galaxy page to send your first saved expedition fleet template
 
 Each one has its own README with a screenshot and install link.
 

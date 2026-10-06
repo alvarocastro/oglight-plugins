@@ -467,6 +467,106 @@ the DOM. Safe to re-run — it early-returns if the panel is already present,
 and saved content/height live in `GM_setValue` storage, not on the element
 itself, so nothing is lost when it gets re-created.
 
+### `OGLight-QuickExpedition.user.js`
+
+Adds a one-click button right after the native **Expedition** button
+(`#expeditionbutton`) on the galaxy page's "Deep space" row
+(`#galaxyRow16` → `#expeditionDebrisSlotActions`) — selects the first saved
+fleet template and sends it, instead of the two manual steps (open dropdown,
+pick a template, click send) the native UI requires. Styled to look like a
+native button (`btn_blue float_right btn_system_action`, same "expedition"
+sprite icon as `#expeditionbutton` itself) rather than an OGLight-style
+Material Icons glyph, since this whole feature lives inside native game
+markup, not OGLight's or this repo's own UI.
+
+**Why this one breaks the CSS-only rule:** it's a new interactive action
+(pick + send), not a restyle of something already on screen, so a small JS
+snippet is unavoidable — same category as `OGLight-Notes.user.js`.
+
+**This is native OGame markup, not OGLight's** — `reference/oglight.js` has
+nothing on the galaxy page's expedition-template UI (confirmed by grepping
+it for `expedition`/`galaxy`/`preset`/`fleetTemplate`-shaped terms; the only
+hits are OGLight's own unrelated "expedition value" options and fleetsave
+feature). The selectors below (`#expeditionFleetTemplateSelect`,
+`#sendExpeditionFleetTemplateFleet`, `#galaxyExpeditionFleetTemplateContainer`)
+were confirmed live via devtools instead, not grepped from source — if the
+base game ever changes this markup, it won't show up as a diff in
+`reference/oglight.js` the way an OGLight-side change would.
+
+**Native markup shape** (confirmed live, galaxy page → row 16 "Deep
+space"): a real `<select id="expeditionFleetTemplateSelect">` (kept
+`display:none`) holding one `<option value="0">-</option>` placeholder plus
+one `<option>` per saved fleet template, mirrored for display by a custom
+dropdown widget (`<span class="dropdown ... expeditionFleetTemplateSelect">`)
+that the base game builds from it. Next to it, `#sendExpeditionFleetTemplateFleet`
+(`onclick="sendExpedtionFleetFromTemplate()"`) starts `display:none` and
+`disabled`, and only the base game's own JS reveals/enables it once a real
+(non-`"0"`) template is selected — presumably because selecting one kicks
+off a native lookup of that template's ship composition first.
+
+**Icon reuse, not a hardcoded sprite URL:** `#expeditionbutton`'s own icon
+comes from a `::before` pseudo-element pulling a frame (`background-position:
+0px -99px`) out of a shared native sprite sheet, whose actual image URL is
+only ever declared once, on the shared `.galaxy_icons` class (confirmed live
+via devtools — `#expeditionbutton:before, .galaxy_icons { background-image:
+url(...); background-repeat:no-repeat }`, `#expeditionbutton:before,
+#sendExpeditionFleetTemplateFleet:before, .galaxy_icons { float:left;
+display:block; height:16px; margin:0 1px; width:16px }`). Rather than copy
+that URL into this plugin (risking a stale/mistyped copy going invisible,
+same failure mode as OGLight's own trimmed icon font above), the button's
+icon is a real `<span class="galaxy_icons ogl_quickExpeditionIcon">` child —
+`galaxy_icons` alone already pulls in the native background-image/repeat/
+sizing rules from the base game's own stylesheet, and this plugin only adds
+its own `background-position: 0px -99px !important` on top, matching
+`#expeditionbutton:before`'s frame. Same principle as `OGLight-FleetShortcuts
+.user.js` reusing OGLight's own `.ogl_metal`/`.ogl_crystal`/`.ogl_deut`
+classes instead of hardcoding sprite URLs itself.
+
+**Click flow:** find the first `<option>` on the real select whose value
+isn't `"0"`, set `select.value` to it, then dispatch both `change` and
+`input` events (`bubbles:true`) on the select — a native `dispatchEvent`
+still reaches jQuery-bound listeners, since modern jQuery attaches through
+`addEventListener` on the same event type, so this doesn't depend on
+knowing whether the base game's handler is vanilla JS or jQuery. Rather than
+click the simulated dropdown option (whose popup markup isn't in the DOM
+until opened, and wasn't captured), driving the underlying `<select>`
+directly was the simplest option that still fires whatever change handler
+the base game has bound to it.
+
+**Waiting for the send button to actually be ready:** since selecting a
+template may kick off a native lookup before `#sendExpeditionFleetTemplateFleet`
+is safe to click, the button doesn't blindly click it after a fixed delay —
+it watches the button's own `disabled`/`style` attributes via a
+`MutationObserver` and clicks (dispatches a `MouseEvent`, not a direct call
+to `sendExpedtionFleetFromTemplate()`, to go through the same path a real
+click would) as soon as both clear, with a 5s cutoff so a stuck/never-ready
+state doesn't leave the observer running forever.
+
+**Reactivity:** switching systems on the galaxy page reloads row 16 (and
+therefore this button) via the base game's own AJAX, wiping our injected
+button without a full page navigation — same category of problem as
+`OGLight-Notes.user.js`'s panel getting wiped by the planet-list sidebar's
+own refresh. Same fix: poll every 1s and re-inject if `.ogl_quickExpedition`
+is missing from `#expeditionDebrisSlotActions`.
+
+**Not yet live-tested** — built from a single live-inspected DOM/CSS snapshot
+of one galaxy page state (a template already selected once, `"1h spam"`/
+`"7h"`/`"6h"` in the dropdown), not from watching the base game's own JS run.
+Two untested assumptions to check first:
+- That dispatching `change`/`input` on the real `<select>` is enough to
+  trigger whatever the base game does when a template is picked (including
+  any AJAX ship-composition lookup) — if the base game's handler is instead
+  bound only to the simulated dropdown's own click/tap events rather than to
+  the underlying `<select>`'s `change` event, this won't work and needs a
+  different approach (e.g. locating and clicking the matching option in the
+  dropdown's popup markup once it's open).
+- That the button actually looks right: `btn_blue`/`btn_system_action`'s own
+  padding/sizing rules (not visible to us — native game CSS, not OGLight's)
+  were never inspected, so text+icon layout inside the button, and whether a
+  4th element fits the row at all alongside the dropdown and
+  `#expeditionbutton`/`#sendExpeditionFleetTemplateFleet`, needs eyeballing
+  live.
+
 ## Testing
 
 No build step. Install the `.user.js` file directly in Tampermonkey
